@@ -31,6 +31,12 @@ app.get("/",(req,res)=>{
     res.send("API Working")
 })
 
+// +++ ADDED HEALTH ENDPOINT +++
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "OK", message: "Server is healthy" })
+})
+// ++++++++++++++++++++++++++++++
+
 app.listen(port,()=>{
     console.log(`Server Started on http://localhost:${port}`)
 })
