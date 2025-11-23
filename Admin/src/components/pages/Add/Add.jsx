@@ -10,7 +10,8 @@ const Add = ({url}) => {
         name:"",
         description:"",
         price:"",
-        category:"Salad"
+        category:"Salad",
+        stall:""
     }) 
 
     const onChangeHandler = (event) => {
@@ -26,6 +27,7 @@ const Add = ({url}) => {
         formData.append("description",data.description)
         formData.append("price",Number(data.price))
         formData.append("category",data.category)
+        formData.append("stall",data.stall)
         formData.append("image",image)
         const response   = await  axios.post(`${url}/api/food/add`,formData);
         if(response.data.success){
@@ -33,7 +35,8 @@ const Add = ({url}) => {
                 name:"",
                 description:"",
                 price:"",
-                category:"Salad"
+                category:"Salad",
+                stall:""
             })
             setImage(false)
             toast.success(response.data.message)
@@ -64,7 +67,7 @@ const Add = ({url}) => {
             <div className="add-category-price">
                 <div className="add-category flex-col">
                     <p>Product Category</p>
-                    <select onChange={onChangeHandler} name="category" >
+                    <select onChange={onChangeHandler} name="category" value={data.category}>
                         <option value="Salad">Salad</option>
                         <option value="Rolls">Rolls</option>
                         <option value="Deserts">Deserts</option>
@@ -79,6 +82,18 @@ const Add = ({url}) => {
                     <p>Product Price</p>
                     <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='₹ 100'  />
                 </div>
+            </div>
+            <div className="add-stall flex-col">
+                <p>Stall (Optional)</p>
+                <select onChange={onChangeHandler} name="stall" value={data.stall}>
+                    <option value="">Select Stall</option>
+                    <option value="Kathi Junction">Kathi Junction</option>
+                    <option value="Smoothie Zone">Smoothie Zone</option>
+                    <option value="Muskan Hotel">Muskan Hotel</option>
+                    <option value="Old Rao Hotel">Old Rao Hotel</option>
+                    <option value="Cafe Twenty">Cafe Twenty</option>
+                    <option value="Shyam Dhaba">Shyam Dhaba</option>
+                </select>
             </div>
             <button type='Submit' className='add-btn'>ADD</button>
         </form>

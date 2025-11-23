@@ -46,6 +46,7 @@ const List = ({ url }) => {
           <b>Image</b>
           <b>Name</b>
           <b>Category</b>
+          <b>Stall</b>
           <b>Price</b>
           <b>Action</b>
         </div>
@@ -55,6 +56,7 @@ const List = ({ url }) => {
               <img src={`${url}/images/${item.image}`} alt={item.name} />
               <p>{item.name}</p>
               <p>{item.category}</p>
+              <p>{item.stall || "N/A"}</p>
               <p>₹{item.price}</p>
               <p onClick={() => removeFood(item._id)} className='cursor'>X</p>
             </div>

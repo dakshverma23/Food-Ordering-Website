@@ -21,10 +21,40 @@
     border: 1px solid #C5C5C5;
     border-radius: 4px;
     outline-color: tomato;
+    transition: border-color 0.3s;
 }
+
+.place-order-left input.error-input{
+    border: 2px solid #ff4444;
+    margin-bottom: 5px;
+}
+
+.place-order-left input.error-input:focus{
+    outline-color: #ff4444;
+    border-color: #ff4444;
+}
+
+.input-field-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.error-message{
+    color: #ff4444;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: -5px;
+    padding-left: 5px;
+}
+
 .place-order-left .multi-fields{
     display: flex;
     gap: 10px;
+}
+
+.place-order-left .multi-fields .input-field-wrapper{
+    flex: 1;
 }
 .place-order-right{
     width: 100%;
@@ -32,4 +62,24 @@
 }
 .place-order .cart-total button{
     margin-top: 30px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: tomato;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.place-order .cart-total button:hover:not(:disabled){
+    background-color: #ff6347;
+}
+
+.place-order .cart-total button.disabled-button{
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
