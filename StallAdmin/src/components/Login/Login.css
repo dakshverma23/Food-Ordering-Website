@@ -1,0 +1,71 @@
+.stall-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stall-login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+.stall-login-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+.stall-login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stall-login-container input {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.stall-login-container input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.stall-login-container button {
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.stall-login-container button:hover {
+    transform: translateY(-2px);
+}
+
+.stall-login-container p {
+    text-align: center;
+    margin-top: 20px;
+    color: #667eea;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.stall-login-container p:hover {
+    text-decoration: underline;
+}
+

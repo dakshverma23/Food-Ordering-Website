@@ -12,11 +12,23 @@ const razorpay = new Razorpay({
 const placeOrder = async (req, res) => {
     const frontend_url = "http://localhost:5173"; // Ensure this URL is used for redirection
     try {
+        // Extract unique stalls from order items
+        const stalls = [...new Set(req.body.items.map(item => item.stall).filter(Boolean))];
+        
+        // Format items to include itemId for easier tracking
+        const formattedItems = req.body.items.map(item => ({
+            itemId: item._id,
+            quantity: item.quantity,
+            price: item.price,
+            name: item.name
+        }));
+
         const newOrder = new orderModel({
             userId: req.body.userId,
-            items: req.body.items,
+            items: formattedItems,
             amount: req.body.amount,
             address: req.body.address,
+            stalls: stalls
         });
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });

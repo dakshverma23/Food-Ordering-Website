@@ -1,0 +1,140 @@
+.stall-orders {
+    padding: 40px;
+}
+
+.stall-orders h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.order-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.status-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-badge.food-processing {
+    background: #ffeaa7;
+    color: #d63031;
+}
+
+.status-badge.out-for-delivery {
+    background: #74b9ff;
+    color: white;
+}
+
+.status-badge.delivered {
+    background: #00b894;
+    color: white;
+}
+
+.order-items {
+    margin-bottom: 20px;
+}
+
+.order-items h4 {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.order-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.order-item > div {
+    flex: 1;
+}
+
+.order-item p {
+    margin: 4px 0;
+    color: #333;
+}
+
+.item-total {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 18px;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.order-address p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.order-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.order-total {
+    font-size: 20px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.order-actions select {
+    padding: 8px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.order-actions select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+

@@ -29,7 +29,12 @@ const addFood = async (req,res) => {
 //ALL FOOD LIST
 const listFood = async (req,res)=>{
     try {
-        const foods = await foodModel.find({});
+        const { stall } = req.query;
+        let query = {};
+        if (stall) {
+            query.stall = stall;
+        }
+        const foods = await foodModel.find(query);
         res.json({success:true,data:foods})
     } catch (error) {
         console.log(error);

@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';  // Import Footer component
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders';
+import StallDashboard from './pages/StallDashboard/StallDashboard';
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/order' element={<PlaceOrder />} />
           <Route path='/verify' element={<Verify />}></Route>
           <Route path='/myorders' element={<MyOrders/>}></Route>
+          <Route path='/stall/:stallName' element={<StallDashboard />} />
         </Routes>
       </div>
       <Footer />  {/* Ensure Footer is properly imported and used */}

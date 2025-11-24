@@ -24,7 +24,15 @@ const ExploreMenu = ({category, setCategory, selectedStall, setSelectedStall}) =
         <div className="explore-stalls-list">
             {stalls_list.map((stall, index) => {
                 return(
-                    <div onClick={()=>setSelectedStall(prev=>prev===stall.stall_name?"":stall.stall_name)} key={index} className="explore-stalls-list-item">
+                    <div 
+                        onClick={()=>{
+                            // Navigate to stall dashboard
+                            window.location.href = `/stall/${encodeURIComponent(stall.stall_name)}`;
+                        }} 
+                        key={index} 
+                        className="explore-stalls-list-item"
+                        style={{cursor: 'pointer'}}
+                    >
                         <img className={selectedStall===stall.stall_name?"active":""} src={stall.stall_image} alt="" />
                         <p>{stall.stall_name}</p>
                     </div>
