@@ -19,6 +19,47 @@ foodRouter.post("/add",upload.single("image"),addFood)
 foodRouter.get("/list",listFood);
 foodRouter.post("/remove",removeFood);
 
-
+// New route to add stall menus in bulk
+foodRouter.post("/add-stall-menus", async (req, res) => {
+    try {
+        const { stallName, items } = req.body;
+        const foodModel = (await import("../models/foodModel.js")).default;
+        
+        const addedItems = [];
+        const skippedItems = [];
+        
+        for (const item of items) {
+            const existing = await foodModel.findOne({ 
+                name: item.name, 
+                stall: stallName 
+            });
+            
+            if (!existing) {
+                const food = new foodModel({
+                    name: item.name,
+                    description: item.description,
+                    price: item.price,
+                    category: item.category,
+                    stall: stallName,
+                    image: item.image || "1721329323168food_1.png"
+                });
+                await food.save();
+                addedItems.push(item.name);
+            } else {
+                skippedItems.push(item.name);
+            }
+        }
+        
+        res.json({ 
+            success: true, 
+            message: `Added ${addedItems.length} items for ${stallName}. ${skippedItems.length} items already existed.`,
+            addedItems,
+            skippedItems
+        });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error adding menu items", error: error.message });
+    }
+});
 
 export default foodRouter;
